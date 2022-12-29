@@ -4,26 +4,26 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SIG-Kabupaten Bekasi</title>
-    
+        <title>UAS-SIG</title>
+        
         <!-- import jquery cdn -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
+        
         <!-- import bootstrap css -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+        
         <!-- import font awesome v6 cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
             integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
             crossorigin="anonymous" />
         <!-- import font awesome v6 cdn -->
-    
+
         <!-- adminlte import-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
         <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
         <!-- adminlte import-->
-    
+
         <!-- leaflet import css -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"
             integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -36,20 +36,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw-src.js"></script>
         <!-- import leaflet library -->
-    
-        <style>
-            /* scrollable sidebar */
-            .sidebar {
-                position: fixed;
-                overflow-y: scroll;
-                top: 10;
-                bottom: 0;
-            }
-        </style>
+
+
     </head>
-
-<body>
-
+    <body>
     <!-- adminlte sidebar for leaflet -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
@@ -74,7 +64,7 @@
         </div>
         <!-- /.sidebar -->
     </aside>
-    <!-- adminlte sidebar for leaflet -->
+    
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -88,6 +78,7 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
+        
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
@@ -106,7 +97,9 @@
                 </div> <!-- /.row -->
             </div> <!-- /.container-fluid -->
         </div> <!-- /.content -->
-    </div> <!-- /.content-wrapper -->
+    </div>
+    <!-- /.content-wrapper -->
+    
     <!-- main footer -->
     <footer class="main-footer">
         <!-- To the right -->
@@ -117,19 +110,18 @@
         <strong>Abdul Majid Refindo &copy; 2022 <a href="#">Sistem Informasi Geografis</a>.</strong> Universitas Sultan
         Ageng Tirtayasa.
     </footer>
+    
     <!-- main footer -->
-
     <script>
-
-        // create map kabupaten bekasi
+    // create map kabupaten bekasi
         var map = L.map('map').setView([-6.210362378385682, 107.12713793845063], 10);
         // add tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
         }).addTo(map);
-
-       // add geojson file
-       var geojsonAreaLayer = new L.GeoJSON.AJAX(["data/polygon_administrasi.geojson"], {
+    
+    // add geojson file
+    var geojsonAreaLayer = new L.GeoJSON.AJAX(["data/polygon_administrasi.geojson"], {
         style: function (feature) {	
             //random color
             var color = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -196,13 +188,7 @@
         "Pendidikan" : geojsonPendidikanLayer,
         "Sungai" : geojsonSungaiLayer,
     }
-
     L.control.layers(baseMaps, overLays).addTo(map);
-        
-
-
     </script>
-
-</body>
-
+    </body>
 </html>
